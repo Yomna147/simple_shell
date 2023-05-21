@@ -17,11 +17,40 @@ while (8){
             printf("Exiting shell..\n");
             return (-1);
         }
+	 lineptr_copy = malloc(sizeof(char) * nchars_read);
+        if (lineptr_copy== NULL){
+            perror("tsh: memory allocation error");
+            return (-1);
+        }
+	strcpy(lineptr_copy, lineptr);
 
-  printf("%s\n", lineptr);
+	token = strtok(lineptr, delim);
 
-  free(lineptr);
+        while (token != NULL){
+            num_tokens++;
+            token = strtok(NULL, delim);
+        }
+        num_tokens++;
+	 argv = malloc(sizeof(char *) * num_tokens);
+
+        /* Store each token in the argv array */
+        token = strtok(lineptr_copy, delim);
+
+        for (i = 0; token != NULL; i++){
+            argv[i] = malloc(sizeof(char) * strlen(token));
+            strcpy(argv[i], token);
+
+            token = strtok(NULL, delim);
+        }
+        argv[i] = NULL;
+
+
+        printf("%s\n", lineptr);
+
+        /* free up allocated memory */
+        free(lineptr);
+    }
+
+
+    return (0);
 }
-  return (0);
-}
-
