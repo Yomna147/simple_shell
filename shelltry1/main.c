@@ -1,4 +1,4 @@
-#include "main.h"
+    #include "main.h"
 
 int main(int ac, char **argv)
 {
@@ -9,10 +9,10 @@ int main(int ac, char **argv)
     const char *delim = " \n";
     int num_tokens = 0;
     char *token;
-    int i;
+    int z;
 
     /* declaring void variables */
-    (void)ac;
+   (void)ac;
 
     /* Create a loop for the shell's prompt */
     while (8)
@@ -30,7 +30,7 @@ int main(int ac, char **argv)
         lineptr_copy = malloc(sizeof(char) * nchars_read);
         if (lineptr_copy == NULL)
         {
-            perror("tsh: memory allocation error");
+            perror("tsh: mem allocation err");
             return (-1);
         }
         /* copy lineptr to lineptr_copy */
@@ -53,14 +53,14 @@ int main(int ac, char **argv)
         /* Store each token in the argv array */
         token = strtok(lineptr_copy, delim);
 
-        for (i = 0; token != NULL; i++)
+        for (z = 0; token != NULL; z++)
         {
-            argv[i] = malloc(sizeof(char) * strlen(token));
-            strcpy(argv[i], token);
+            argv[z] = malloc(sizeof(char) * strlen(token));
+            strcpy(argv[z], token);
 
             token = strtok(NULL, delim);
         }
-        argv[i] = NULL;
+        argv[z] = NULL;
 
         /* execute the command */
         execmd(argv);
