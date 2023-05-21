@@ -1,42 +1,60 @@
 #include "main.h"
 
-int main(int ac, char **argv){
-  char *prompt = "(shelltry1) $ ";
-  char *lineptr = NULL, *lineptr_copy = NULL;
-  size_t n = 0; 
- ssize_t nchars_read;
- const char *delim = " \n"
+int main(int ac, char **argv)
+{
+    char *prompt = "(shelltry1) $ ";
+    char *lineptr = NULL, *lineptr_copy = NULL;
+    size_t n = 0;
+    ssize_t nchars_read;
+    const char *delim = " \n";
+    int num_tokens = 0;
+    char *token;
+    int i;
 
-  /* declaring void variables */
-  (void)ac; (void)argv;
-while (8){
-	printf("%s", prompt);
-      nchars_read = getline(&lineptr, &n, stdin);
+    /* declaring void variables */
+    (void)ac;
 
-        if (nchars_read == -1){
-            printf("Exiting shell..\n");
+    /* Create a loop for the shell's prompt */
+    while (8)
+    {
+        printf("%s", prompt);
+        nchars_read = getline(&lineptr, &n, stdin);
+        /* check if the getline function failed or reached EOF or user use CTRL + D */
+        if (nchars_read == -1)
+        {
+            printf("Exiting shell.\n");
             return (-1);
         }
-	 lineptr_copy = malloc(sizeof(char) * nchars_read);
-        if (lineptr_copy== NULL){
+
+        /* allocate space for a copy of the lineptr */
+        lineptr_copy = malloc(sizeof(char) * nchars_read);
+        if (lineptr_copy == NULL)
+        {
             perror("tsh: memory allocation error");
             return (-1);
         }
-	strcpy(lineptr_copy, lineptr);
+        /* copy lineptr to lineptr_copy */
+        strcpy(lineptr_copy, lineptr);
 
-	token = strtok(lineptr, delim);
+        /********** split the string (lineptr) into an array of words ********/
+        /* calculate the total number of tokens */
+        token = strtok(lineptr, delim);
 
-        while (token != NULL){
+        while (token != NULL)
+        {
             num_tokens++;
             token = strtok(NULL, delim);
         }
         num_tokens++;
-	 argv = malloc(sizeof(char *) * num_tokens);
+
+        /* Allocate space to hold the array of strings */
+        argv = malloc(sizeof(char *) * num_tokens);
 
         /* Store each token in the argv array */
         token = strtok(lineptr_copy, delim);
 
-        for (i = 0; token != NULL; i++){
+        for (i = 0; token != NULL; i++)
+        {
             argv[i] = malloc(sizeof(char) * strlen(token));
             strcpy(argv[i], token);
 
@@ -44,13 +62,13 @@ while (8){
         }
         argv[i] = NULL;
 
-
-        printf("%s\n", lineptr);
-
-        /* free up allocated memory */
-        free(lineptr);
+        /* execute the command */
+        execmd(argv);
     }
 
+    /* free up allocated memory */
+    free(lineptr_copy);
+    free(lineptr);
 
     return (0);
 }
