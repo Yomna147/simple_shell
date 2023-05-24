@@ -1,8 +1,8 @@
 #include "shell.h"
 
 /**
-  * _env - Display the environ in the shell.
-  * @arguments: List of arguments passed from parsing.
+  * _env - Display the enviro in the shell.
+  * @arguments: List of args passed from parsing.
   * @input: Input line for free.
   * Return: 1 if works.
   */
@@ -20,9 +20,9 @@ int _env(__attribute__((unused)) char **arguments,
 	return (1);
 }
 /**
-  * _setenv - Set a environment variable.
-  * @name: Name of the variable
-  * @value: Value in the variable.
+  * _setenv - Set a env var.
+  * @name: Name of the var
+  * @value: Value in the var.
   * Return: 1 if works.
   */
 int _setenv(char *name, char *value)
@@ -68,8 +68,8 @@ int _setenv(char *name, char *value)
 	return (1);
 }
 /**
- * _unsetenv - Unset an environment variable.
- * @name: Name of the variable.
+ * _unsetenv - Unset an env var.
+ * @name: Name of the var.
  * Return: 1 if works.
  */
 int _unsetenv(char *name)
