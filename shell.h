@@ -44,12 +44,12 @@ int alloc_error1(char *buffer, char *dest_path);
 /* Function declarations (prototypes) for built-in functions*/
 
 /**
-  * display_help - Help function
+  * _myhelp - Help function
   * @arguments: List of arguments passed from parsing.
   * @input: Input line for free.
   * Return: 1 if works.
   */
-int display_help(char **arguments, char *input);
+int _myhelp(info_t *);
 
 /**
   * _env - Env function
