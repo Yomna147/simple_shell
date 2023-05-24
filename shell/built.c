@@ -28,23 +28,20 @@ int change_directory(char **arguments, __attribute__((unused)) char *input)
 
 
 /**
-  * display_help - Display the help about a command.
+  * _myhelp - Display the help about a command.
   * @arguments: List of arguments passed from parsing.
   * @input: Input line for free.
   * Return: 1 if works.
   */
-int display_help(__attribute__((unused)) char **arguments,
-		__attribute__((unused)) char *input)
+int _myhelp(info_t *info)
 {
-	int i;
-	char *builtin_str[] = {"cd", "help", "exit"};
+	char **arg_array;
 
-	for (i = 0; i < 3; i++)
-	{
-		write(STDOUT_FILENO, builtin_str[i], _strlen(builtin_str[i]));
-		write(STDOUT_FILENO, "\n", 1);
-	}
-	return (1);
+	arg_array = info->argv;
+	_puts("help call works. Function not yet implemented \n");
+	if (0)
+		_puts(*arg_array); /*temp att_unused workaround */
+	return (0);
 }
 /**
  * exit_shell - Exit the shell.
