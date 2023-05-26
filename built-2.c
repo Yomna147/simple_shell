@@ -1,8 +1,8 @@
 #include "shell.h"
 
 /**
-  * _env - Display the enviro in the shell.
-  * @arguments: List of args passed from parsing.
+  * _env - Disply the env in the shll.
+  * @args: List of args passed from parsing.
   * @input: Input line for free.
   * Return: 1 if works.
   */
@@ -21,7 +21,7 @@ int _env(__attribute__((unused)) char **arguments,
 }
 /**
   * _setenv - Set a env var.
-  * @name: Name of the var
+  * @nme: Name of the var
   * @value: Value in the var.
   * Return: 1 if works.
   */
