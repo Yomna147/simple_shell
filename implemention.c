@@ -1,8 +1,8 @@
 #include "shell.h"
 
 /**
-  * builtin_functions - Redirect to builtin functions.
-  * @builtin_functions: Array of pointers to builtin functions.
+  * builtin_functions - Redirect to bltin functions.
+  * @builtin_functions: Array of pointers to btin functions.
   * Return: 1 if _help works, 0 if exit works.
   */
 
@@ -15,7 +15,7 @@ int (*builtin_functions[])(char **arguments, char *input) = {
 
 /**
   * execute_builtin - Execute builtin process.
-  * @arguments: List of arguments passed from parsing.
+  * @args: List of arguments passed from parsing.
   * @input: Input line for free.
   * Return: _launch(arguments).
   */
