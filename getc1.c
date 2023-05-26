@@ -1,9 +1,9 @@
 #include "shell.h"
 
 /**
- * _my_getc - Reads a text file and returns the next char from input
+ * _my_getc - Reds a txt file and retrns the next char from input
  *
- * Return: Next char from input, or EOF on end-of-file or error
+ * Return: Nxt char from input, or EOF on end-of-file or err
  */
 int _my_getc(void)
 {
