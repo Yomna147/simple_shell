@@ -1,8 +1,8 @@
 #include "shell.h"
 
 /**
- * sigint_handler - Signal handler.
- * @signal: The signal that triggered the handler.
+ * sigint_hndler - Sgnl hndler.
+ * @signal: The sgnl that triged the handler.
  */
 void sigint_handler(int signal)
 {
