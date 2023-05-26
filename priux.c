@@ -35,14 +35,14 @@ int _putchar(char c)
  */
 int _atoi(char *s)
 {
-	int i = 0, sign = 0, num = 1;
-	unsigned int power = 1, sum = 0;
+	int k = 0, sign = 0, num = 1;
+	unsigned int pwr = 1, sum = 0;
 
-	while (s[i])
+	while (s[k])
 	{
-		if ((s[i] == '-' || s[i] == '+') && sign == 0)
+		if ((s[k] == '-' || s[k] == '+') && sign == 0)
 		{
-			if (s[i] == '-')
+			if (s[k] == '-')
 			{
 				num *= -1;
 			}
@@ -51,7 +51,7 @@ int _atoi(char *s)
 				num *= 1;
 			}
 		}
-		else if (s[i] >= '0' && s[i] <= '9')
+		else if (s[k] >= '0' && s[k] <= '9')
 		{
 			sign = 1;
 		}
@@ -60,15 +60,15 @@ int _atoi(char *s)
 			break;
 		}
 
-		i++;
+		k++;
 	}
 
-	i--;
-	while (s[i] >= '0' && s[i] <= '9')
+	k--;
+	while (s[k] >= '0' && s[k] <= '9')
 	{
-		sum += (s[i] - '0') * power;
-		power *= 10;
-		i--;
+		sum += (s[k] - '0') * pwr;
+		pwr *= 10;
+		k--
 	}
 
 	return (sum * num);
