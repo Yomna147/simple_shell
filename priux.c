@@ -1,8 +1,8 @@
 #include "shell.h"
 
 /**
- * _puts - print like puts func
- * @str: pointer to a char
+ * _puts - prnt like puts func
+ * @str: pntr to a char
  * Return: void
  */
 void _puts(char *str)
@@ -18,10 +18,10 @@ void _puts(char *str)
 
 /**
  * _putchar - writes the char c to stdout
- * @c: The char to print
+ * @c: The char to prnt
  *
  * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * On error, -1 is returned, and errno is set appr.
  */
 int _putchar(char c)
 {
@@ -35,14 +35,14 @@ int _putchar(char c)
  */
 int _atoi(char *s)
 {
-	int k = 0, sign = 0, num = 1;
-	unsigned int pwr = 1, sum = 0;
+	int i = 0, sign = 0, num = 1;
+	unsigned int power = 1, sum = 0;
 
-	while (s[k])
+	while (s[i])
 	{
-		if ((s[k] == '-' || s[k] == '+') && sign == 0)
+		if ((s[i] == '-' || s[i] == '+') && sign == 0)
 		{
-			if (s[k] == '-')
+			if (s[i] == '-')
 			{
 				num *= -1;
 			}
@@ -51,7 +51,7 @@ int _atoi(char *s)
 				num *= 1;
 			}
 		}
-		else if (s[k] >= '0' && s[k] <= '9')
+		else if (s[i] >= '0' && s[i] <= '9')
 		{
 			sign = 1;
 		}
@@ -60,15 +60,15 @@ int _atoi(char *s)
 			break;
 		}
 
-		k++;
+		i++;
 	}
 
-	k--;
-	while (s[k] >= '0' && s[k] <= '9')
+	i--;
+	while (s[i] >= '0' && s[i] <= '9')
 	{
-		sum += (s[k] - '0') * pwr;
-		pwr *= 10;
-		k--
+		sum += (s[i] - '0') * power;
+		power *= 10;
+		i--;
 	}
 
 	return (sum * num);
